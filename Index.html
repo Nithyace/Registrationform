@@ -10,7 +10,7 @@
 
     <div class="container">
         <h2>Registration Form</h2>
-        <form action="/submit_registration" method="POST">
+        <form action="/submit_registration" method="POST" id="registrationForm">
             <label for="fullName">Full Name:</label>
             <input type="text" id="fullName" name="fullName" required>
 
@@ -63,6 +63,20 @@
             <button type="submit" class="submit-btn">Submit Registration</button>
         </form>
     </div>
+
+    <script>
+        // Password match validation
+        const form = document.getElementById('registrationForm');
+        form.addEventListener('submit', function(event) {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+    </script>
 
 </body>
 </html>
